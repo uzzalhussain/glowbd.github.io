@@ -758,7 +758,7 @@ function submitOrder(){
   var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
   var pl=cart.map(function(i){return i.name+(i.size?' ('+i.size+')':'')+' \u00d7 '+i.qty;}).join(', ');
   var now=new Date();
-  var od={name:n,phone:ph,products:pl,total:total,district:di,address:ad,note:no||'',status:'new',time:now.toLocaleDateString('bn-BD')+' '+now.toLocaleTimeString('bn-BD')};
+  var od={name:n,phone:ph,products:pl||'পণ্য তালিকা নেই',total:total,district:di,address:ad,note:no||'',status:'new',time:now.toLocaleDateString('bn-BD')+' '+now.toLocaleTimeString('bn-BD')};
   try{if(window.saveOrderToFirebase)window.saveOrderToFirebase(od);}catch(e){console.log('FB error',e);}
   var msg='🌸 নতুন অর্ডার - Usa GlowBD\n\n👤 নাম: '+n+'\n📱 ফোন: '+ph+'\n📦 পণ্য:\n'+cart.map(function(i){return '  \u2022 '+i.name+(i.size?' ('+i.size+')':'')+' \u00d7 '+i.qty+' = \u09f3'+(i.price*i.qty);}).join('\n')+'\n💰 মোট: \u09f3'+total+'\n📍 জেলা: '+di+'\n🏠 ঠিকানা: '+ad+(no?'\n📝 নোট: '+no:'');
   document.getElementById('coSubBtn').style.display='none';
