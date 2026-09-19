@@ -764,7 +764,15 @@ function submitOrder(){
   document.getElementById('coSubBtn').style.display='none';
   document.getElementById('coOk').style.display='block';
   cart=[];updateCartUI();
-  setTimeout(function(){window.open('https://wa.me/8801740333641?text='+encodeURIComponent(msg),'_blank');},800);
+  setTimeout(function(){
+  var waLink=document.createElement('a');
+  waLink.href='https://wa.me/8801740333641?text='+encodeURIComponent(msg);
+  waLink.target='_blank';
+  waLink.rel='noopener';
+  document.body.appendChild(waLink);
+  waLink.click();
+  document.body.removeChild(waLink);
+},800);
 }
 initSlider();
 </script>
