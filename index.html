@@ -756,7 +756,7 @@ function submitOrder(){
   if(!ad){se('address','ঠিকানা লিখুন');ok=false;}else he('address');
   if(!ok)return;
   var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
-  var pl=cart.map(function(i){return i.name+(i.size?' ('+i.size+')':'')+' \u00d7 '+i.qty;}).join(', ');
+var pl=cart&&cart.length?cart.map(function(i){return i.name+(i.size?' ('+i.size+')':'')+' × '+i.qty;}).join(', '):'পণ্য নির্বাচন করুন';
   var now=new Date();
   var od={name:n,phone:ph,products:pl||'পণ্য তালিকা নেই',total:total,district:di,address:ad,note:no||'',status:'new',time:now.toLocaleDateString('bn-BD')+' '+now.toLocaleTimeString('bn-BD')};
   try{if(window.saveOrderToFirebase)window.saveOrderToFirebase(od);}catch(e){console.log('FB error',e);}
