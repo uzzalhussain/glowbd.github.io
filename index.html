@@ -669,44 +669,52 @@ window.saveOrderToFirebase=function(d){push(ref(db,'orders'),d);};
 </script>
 
 <script>
+
 /* ══ SLIDER ══ */
 var slideIdx=0,slideTotal=4,sliderTimer;
 function initSlider(){
+  var track=document.getElementById('sliderTrack');
   var dotsEl=document.getElementById('sliderDots');
+  // Clone সব slides করো infinite loop এর জন্য
+  var slides=track.innerHTML;
+  track.innerHTML=slides+slides; // দুইবার করো
   for(var i=0;i<slideTotal;i++){
-    var d=document.createElement('button');d.className='sdot-btn'+(i===0?' active':'');
-    d.onclick=(function(idx){return function(){goSlide(idx);};})(i);
+    var d=document.createElement('button');
+    d.className='sdot-btn'+(i===0?' active':'');
+    d.onclick=(function(idx){return function(){jumpToSlide(idx);};})(i);
     dotsEl.appendChild(d);
   }
   startAuto();
 }
-function goSlide(n){
-  slideIdx=(n+slideTotal)%slideTotal;
-  document.getElementById('sliderTrack').style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-  document.getElementById('sliderTrack').style.transform='translateX(-'+slideIdx+'00%)';
-  document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx);});
-}
-function slideNext(){
-  slideIdx=(slideIdx+1)%slideTotal;
-  goSlide(slideIdx);
-  resetAuto();
-}
-function slidePrev(){
-  slideIdx=(slideIdx-1+slideTotal)%slideTotal;
-  goSlide(slideIdx);
+function jumpToSlide(n){
+  slideIdx=n;
+  var track=document.getElementById('sliderTrack');
+  track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+  track.style.transform='translateX(-'+slideIdx+'00%)';
+  document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===n%slideTotal);});
   resetAuto();
 }
 function startAuto(){
   sliderTimer=setInterval(function(){
+    var track=document.getElementById('sliderTrack');
     slideIdx++;
-    if(slideIdx>=slideTotal){slideIdx=0;}
-    document.getElementById('sliderTrack').style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-    document.getElementById('sliderTrack').style.transform='translateX(-'+slideIdx+'00%)';
-    document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx);});
+    track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+    track.style.transform='translateX(-'+slideIdx+'00%)';
+    document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});
+    // শেষ real slide এ পৌঁছালে চুপে চুপে প্রথমে ফিরে যাও
+    if(slideIdx>=slideTotal){
+      setTimeout(function(){
+        track.style.transition='none';
+        track.style.transform='translateX(0%)';
+        slideIdx=0;
+        document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});
+      },650);
+    }
   },3500);
 }
+function slideNext(){slideIdx++;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}resetAuto();}
+function slidePrev(){if(slideIdx<=0){slideIdx=slideTotal;}slideIdx--;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});resetAuto();}
 function resetAuto(){clearInterval(sliderTimer);startAuto();}
-
 /* ══ CART ══ */
 var cart=[];
 function addToCart(p){
