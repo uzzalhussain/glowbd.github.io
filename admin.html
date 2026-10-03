@@ -372,7 +372,8 @@ onValue(ref(db,'products'),function(snap){
   tb.innerHTML='';
   var count=0;
   if(data){
-    Object.entries(data).forEach(function(entry){
+    window._allProductsAdmin=data;
+Object.entries(data).forEach(function(entry){
       var key=entry[0];var p=entry[1];count++;
       var stockClass=p.stock>20?'in':p.stock>0?'low':'out';
       var stockLabel=p.stock>20?'আছে':p.stock>0?'কম':'শেষ';
@@ -384,7 +385,7 @@ onValue(ref(db,'products'),function(snap){
         +'<td style="color:var(--gold);font-weight:700;">৳'+p.price+'</td>'
         +'<td><span class="badge-stock '+stockClass+'">'+p.stock+' — '+stockLabel+'</span></td>'
         +'<td><div class="action-btns">'
-        +'<button class="btn-edit" onclick="openProductModal(\''+key+'\','+JSON.stringify(p).replace(/'/g,"\\'")+'  )">✏️ Edit</button>'
+        +'<button class="btn-edit" onclick="editByKey(\''+key+'\')" >✏️ Edit</button>'
         +'<button class="btn-del" onclick="deleteProduct(\''+key+'\')">🗑️</button>'
         +'</div></td></tr>';
     });
@@ -408,7 +409,8 @@ onValue(ref(db,'orders'),function(snap){
   }
   list.innerHTML='';
   var recentHtml='';
-  Object.entries(data).forEach(function(entry){
+  window._allProductsAdmin=data;
+Object.entries(data).forEach(function(entry){
     var key=entry[0];var o=entry[1];total++;
     if(o.status==='new')newCount++;
     var card='<div class="order-card">'
@@ -446,6 +448,12 @@ window.updateOrderStatus=function(key,val){
 };
 
 // SAVE PRODUCT
+
+window.editByKey=function(key){
+  if(!window._allProductsAdmin)return;
+  var p=window._allProductsAdmin[key];
+  if(p)openProductModal(key,p);
+};
 window.saveProduct=function(){
   var name=document.getElementById('p-name').value.trim();
   var price=parseInt(document.getElementById('p-price').value);
