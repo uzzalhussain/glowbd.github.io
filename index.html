@@ -7,78 +7,83 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --p:#e91e8c;--p2:#ff4db8;--p3:#ff85cc;
-  --p4:#ffd6f0;--p5:#fff0f9;
-  --dark:#1a0a14;--muted:#9a7a90;--border:#ffd6f0;
-}
+:root{--p:#e91e8c;--p2:#ff4db8;--p3:#ff85cc;--p4:#ffd6f0;--p5:#fff0f9;--dark:#1a0a14;--muted:#9a7a90;}
 html{scroll-behavior:smooth;}
 body{font-family:'Hind Siliguri',sans-serif;background:#fff;color:var(--dark);font-size:16px;}
 
 /* TOPBAR */
-.topbar{background:linear-gradient(90deg,var(--p),var(--p2),var(--p));background-size:200%;animation:bar 4s infinite;color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:600;letter-spacing:0.2px;}
+.topbar{background:linear-gradient(90deg,var(--p),var(--p2),var(--p));background-size:200%;animation:bar 4s infinite;color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:600;}
 @keyframes bar{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
-header{background:#1a1a2e;border-bottom:none;position:sticky;top:0;z-index:90;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
-.hdr{max-width:1200px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;gap:14px;}
+
+/* HEADER */
+header{background:#1a1a2e;position:sticky;top:0;z-index:90;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
+.hdr{max-width:1400px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:14px;}
 .logo{font-size:22px;font-weight:700;text-decoration:none;margin-right:auto;}
 .logo-u{color:var(--p);}.logo-g{color:#fff;}.logo-b{color:var(--p3);}
 nav{display:flex;gap:18px;}
 nav a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:13px;font-weight:600;transition:color 0.2s;}
 nav a:hover{color:#fff;}
-.cart-btn{position:relative;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.25);color:#fff;padding:7px 14px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;transition:background 0.2s;}
+.cart-btn{position:relative;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.25);color:#fff;padding:7px 14px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;}
 .cart-btn:hover{background:rgba(255,255,255,0.2);}
 .cart-cnt{position:absolute;top:-7px;right:-7px;background:var(--p);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;}
 .cart-cnt.show{display:flex;}
 .wa-hdr{background:linear-gradient(135deg,#25d366,#1aab53);color:#fff;border:none;padding:7px 14px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-family:inherit;box-shadow:0 3px 12px rgba(37,211,102,0.35);}
-.dist-bar{background:#fff;border-bottom:2px solid var(--p4);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:12px;box-shadow:0 2px 8px rgba(233,30,140,0.06);}
+
+/* DIST BAR */
+.dist-bar{background:#fff;border-bottom:2px solid var(--p4);padding:8px 24px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:12px;box-shadow:0 2px 8px rgba(233,30,140,0.06);}
 .dbadge{background:var(--p);color:#fff;padding:2px 10px;border-radius:10px;font-size:10px;font-weight:700;}
 .dbadge.soon{background:#f97316;}
 
-/* ══════════════════════════════
-   HERO SLIDER
-══════════════════════════════ */
-.slider-wrap{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--p5),#fff);}
-.slider-track{display:flex;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);}
-.slide{min-width:100%;position:relative;}
-.slide-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 480px;min-height:360px;align-items:center;gap:30px;}
-.slide-text{padding:40px 0;}
-.slide-eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--p4);border:1px solid var(--p3);padding:4px 12px;border-radius:18px;margin-bottom:14px;}
-.slide-eyebrow span{font-size:10px;color:var(--p);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-.sdot{width:5px;height:5px;background:var(--p);border-radius:50%;animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.slide-h1{font-size:36px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:12px;}
-.slide-h1 .hl{color:var(--p);}
-.slide-p{font-size:14px;color:var(--muted);line-height:1.8;max-width:400px;margin-bottom:22px;}
+/* ══ DARAZ STYLE SLIDER ══ */
+.slider-wrap{position:relative;overflow:hidden;width:100%;}
+.slider-track{display:flex;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
+.slide{min-width:100%;position:relative;overflow:hidden;}
+
+/* Slide layouts */
+.slide-inner{width:100%;height:380px;display:flex;align-items:center;position:relative;overflow:hidden;}
+.slide-content{position:relative;z-index:2;padding:0 60px;flex:1;max-width:55%;}
+.slide-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);padding:4px 14px;border-radius:20px;margin-bottom:16px;backdrop-filter:blur(4px);}
+.slide-tag span{font-size:11px;color:#fff;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.slide-h{font-size:48px;font-weight:900;line-height:1.1;margin-bottom:12px;text-transform:uppercase;}
+.slide-sub{font-size:15px;line-height:1.7;margin-bottom:24px;max-width:400px;}
+.slide-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+.slide-badge-item{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:6px 14px;border-radius:8px;backdrop-filter:blur(4px);}
+.slide-badge-item .bi{font-size:18px;}
+.slide-badge-item .bt{font-size:11px;font-weight:700;color:#fff;}
 .slide-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:11px 24px;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;box-shadow:0 5px 18px rgba(233,30,140,0.28);}
-.btn-ol{background:#fff;color:var(--p);border:2px solid var(--p3);padding:10px 20px;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
+.btn-shop{background:#fff;color:var(--dark);border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform 0.2s;}
+.btn-shop:hover{transform:translateY(-2px);}
+.btn-shop-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:11px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.2s;}
+.btn-shop-outline:hover{background:rgba(255,255,255,0.15);}
 
-.slide-visual{display:flex;align-items:center;justify-content:center;position:relative;min-height:320px;}
-.slide-blob{position:absolute;width:300px;height:300px;background:radial-gradient(circle,var(--p4),transparent 70%);border-radius:50%;}
-.slide-emoji{font-size:100px;position:relative;z-index:2;animation:float 3s ease-in-out infinite;}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.slide-badge{position:absolute;background:#fff;border-radius:10px;padding:7px 12px;box-shadow:0 4px 18px rgba(233,30,140,0.12);border:1px solid var(--p4);z-index:3;}
-.sb1{top:20px;right:10px;}.sb2{bottom:30px;left:10px;}
-.sb-icon{font-size:16px;text-align:center;}
-.sb-lbl{font-size:10px;font-weight:700;color:var(--dark);}
-.sb-sub{font-size:9px;color:var(--muted);}
+.slide-img-area{position:absolute;right:0;top:0;bottom:0;width:50%;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
+.slide-img-area img{max-height:100%;max-width:100%;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.2));animation:imgFloat 4s ease-in-out infinite;}
+.slide-img-area .slide-emoji-big{font-size:160px;animation:imgFloat 4s ease-in-out infinite;line-height:1;padding-bottom:20px;}
+@keyframes imgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-/* SLIDER DOTS & ARROWS */
-.slider-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;}
-.sdot-btn{width:8px;height:8px;border-radius:50%;background:rgba(233,30,140,0.25);border:none;cursor:pointer;transition:all 0.3s;}
-.sdot-btn.active{width:22px;border-radius:4px;background:var(--p);}
-.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:1.5px solid var(--p4);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--p);z-index:5;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-.sa-left{left:12px;}.sa-right{right:12px;}
+/* Decorative circles */
+.deco-circle{position:absolute;border-radius:50%;opacity:0.15;}
+.dc1{width:400px;height:400px;right:-100px;top:-100px;}
+.dc2{width:200px;height:200px;right:200px;bottom:-80px;}
+.dc3{width:120px;height:120px;right:350px;top:20px;}
+
+/* SLIDER CONTROLS */
+.slider-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;}
+.sdot-btn{width:8px;height:8px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);background:transparent;cursor:pointer;transition:all 0.3s;}
+.sdot-btn.active{width:24px;border-radius:4px;background:#fff;border-color:#fff;}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:#fff;z-index:10;backdrop-filter:blur(4px);transition:background 0.2s;}
+.slider-arrow:hover{background:rgba(255,255,255,0.3);}
+.sa-left{left:16px;}.sa-right{right:16px;}
 
 /* STATS */
-stats-bar{background:linear-gradient(135deg,#fff0f9,#ffd6f0);border-bottom:1px solid #ffc2e0;}
-.stats-inner{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px;}
+.stats-bar{background:linear-gradient(135deg,#fff0f9,#ffd6f0);border-bottom:1px solid #ffc2e0;}
+.stats-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px;}
 .stat{text-align:center;}
-.stat-n{font-size:19px;font-weight:700;color:#c0187a !important;}
-.stat-l{font-size:11px;color:#9a4070 !important;}
+.stat-n{font-size:20px;font-weight:700;color:#c0187a;}
+.stat-l{font-size:11px;color:#9a4070;}
 
 /* SECTION */
-.section{max-width:1200px;margin:0 auto;padding:0 20px 50px;}
+.section{max-width:1200px;margin:0 auto;padding:0 24px 56px;}
 .sec-head{text-align:center;padding:44px 0 22px;}
 .sec-tag{display:inline-block;background:var(--p4);border:1px solid var(--p3);color:var(--p);font-size:10px;font-weight:700;padding:3px 12px;border-radius:18px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
 .sec-head h2{font-size:24px;font-weight:700;color:var(--dark);margin-bottom:6px;}
@@ -106,7 +111,7 @@ stats-bar{background:linear-gradient(135deg,#fff0f9,#ffd6f0);border-bottom:1px s
 .add-btn.added{background:linear-gradient(135deg,#16a34a,#22c55e);}
 
 /* WHY */
-.why-bg{background:linear-gradient(135deg,var(--p),var(--p2));padding:48px 20px;}
+.why-bg{background:linear-gradient(135deg,var(--p),var(--p2));padding:48px 24px;}
 .why-inner{max-width:1200px;margin:0 auto;}
 .why-head{text-align:center;margin-bottom:28px;}
 .why-head h2{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px;}
@@ -118,7 +123,7 @@ stats-bar{background:linear-gradient(135deg,#fff0f9,#ffd6f0);border-bottom:1px s
 .wd{font-size:12px;color:rgba(255,255,255,0.8);line-height:1.6;}
 
 /* TRUST */
-.trust-strip{background:#fff;border-top:1px solid var(--p4);border-bottom:1px solid var(--p4);padding:16px 20px;}
+.trust-strip{background:#fff;border-top:1px solid var(--p4);border-bottom:1px solid var(--p4);padding:16px 24px;}
 .trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;}
 .ti{display:flex;align-items:center;gap:8px;}
 .ti-icon{font-size:22px;}
@@ -126,42 +131,37 @@ stats-bar{background:linear-gradient(135deg,#fff0f9,#ffd6f0);border-bottom:1px s
 .ti-sub{font-size:10px;color:var(--muted);}
 
 /* CTA */
-.cta{background:var(--p5);border-top:2px solid var(--p4);padding:48px 20px;text-align:center;}
+.cta{background:var(--p5);border-top:2px solid var(--p4);padding:48px 24px;text-align:center;}
 .cta h2{font-size:22px;font-weight:700;color:var(--dark);margin-bottom:8px;}
 .cta p{font-size:13px;color:var(--muted);margin-bottom:22px;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:11px 24px;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;box-shadow:0 5px 18px rgba(233,30,140,0.28);}
 
 /* FOOTER */
-footer{background:var(--dark);color:#aaa;text-align:center;padding:28px 20px;}
+footer{background:var(--dark);color:#aaa;text-align:center;padding:28px 24px;}
 .fl{font-size:20px;font-weight:700;margin-bottom:8px;}
 .flu{color:var(--p);}.flg{color:#fff;}.flb{color:var(--p3);}
 footer p{font-size:12px;margin-bottom:6px;}
 .flinks{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;}
 .flinks a{font-size:11px;color:var(--p3);text-decoration:none;}
 
-/* ══════════════════════════════
-   PRODUCT DETAIL (MoveOn style)
-══════════════════════════════ */
+/* PRODUCT DETAIL */
 .pd-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;align-items:flex-start;justify-content:center;padding:16px;backdrop-filter:blur(4px);overflow-y:auto;}
 .pd-overlay.open{display:flex;}
 .pd-modal{background:#fff;border-radius:20px;width:100%;max-width:900px;overflow:hidden;animation:popIn 0.25s ease;margin:auto;position:relative;}
 @keyframes popIn{from{transform:scale(0.94);opacity:0}to{transform:scale(1);opacity:1}}
 .pd-close{position:absolute;top:12px;right:12px;z-index:10;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:var(--p);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
 .pd-layout{display:grid;grid-template-columns:1fr 340px;min-height:500px;}
-
-/* LEFT: Gallery */
 .pd-gallery{background:linear-gradient(135deg,var(--p5),var(--p4));position:relative;display:flex;flex-direction:column;}
 .pd-main-img{flex:1;display:flex;align-items:center;justify-content:center;font-size:110px;position:relative;overflow:hidden;min-height:320px;}
 .pd-main-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
-.pd-main-emoji{position:relative;z-index:1;animation:float 3s ease-in-out infinite;}
+.pd-main-emoji{position:relative;z-index:1;animation:imgFloat 3s ease-in-out infinite;}
 .pd-badge-wrap{position:absolute;top:10px;left:10px;z-index:5;}
 .pd-thumbs{display:flex;gap:8px;padding:10px;background:rgba(255,255,255,0.6);overflow-x:auto;}
 .pd-thumb{width:52px;height:52px;border-radius:8px;border:2px solid transparent;cursor:pointer;background:var(--p4);display:flex;align-items:center;justify-content:center;font-size:22px;overflow:hidden;flex-shrink:0;transition:border-color 0.2s;}
 .pd-thumb.active{border-color:var(--p);}
 .pd-thumb img{width:100%;height:100%;object-fit:cover;}
-
-/* RIGHT: Info */
-.pd-info{padding:20px;display:flex;flex-direction:column;gap:0;border-left:1px solid var(--p4);}
+.pd-info{padding:20px;display:flex;flex-direction:column;border-left:1px solid var(--p4);}
 .pd-name{font-size:17px;font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:4px;}
 .pd-size-lbl{font-size:11px;color:#bbb;margin-bottom:10px;}
 .pd-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
@@ -171,29 +171,23 @@ footer p{font-size:12px;margin-bottom:6px;}
 .pd-desc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:12px;}
 .pd-features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
 .pd-feat{background:var(--p5);border:1px solid var(--p4);color:var(--p);font-size:10px;font-weight:600;padding:3px 10px;border-radius:16px;}
-
-/* SUMMARY BOX */
 .pd-summary{background:#f9f9f9;border-radius:12px;padding:12px;margin-bottom:14px;font-size:12px;}
 .pd-sum-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #eee;color:#555;}
 .pd-sum-row:last-child{border:none;font-weight:700;font-size:14px;color:var(--dark);padding-top:6px;}
 .pd-sum-row span:last-child{color:var(--p);}
 .pd-sum-row.discount span:last-child{color:#22c55e;}
 .pd-sum-row.delivery span:last-child{color:#888;}
-
-/* QTY */
 .pd-qty-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .pd-qty-lbl{font-size:12px;font-weight:700;color:#666;}
 .qty-box{display:flex;align-items:center;gap:8px;background:var(--p5);border:1px solid var(--p4);border-radius:20px;padding:4px 10px;}
 .qb{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--p3);background:#fff;color:var(--p);font-size:18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .qn{font-size:15px;font-weight:700;color:var(--dark);min-width:22px;text-align:center;}
-
-/* ACTION BTNS */
 .pd-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto;}
 .pd-buy-btn{width:100%;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:13px;border-radius:24px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 5px 18px rgba(233,30,140,0.28);display:flex;align-items:center;justify-content:center;gap:8px;}
 .pd-add-cart-btn{width:100%;background:#fff;color:var(--p);border:2px solid var(--p3);padding:11px;border-radius:24px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;}
 .pd-add-cart-btn:hover{background:var(--p5);}
 
-/* CART DRAWER */
+/* CART */
 .cart-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:170;backdrop-filter:blur(3px);}
 .cart-overlay.open{display:block;}
 .cart-drawer{position:fixed;right:0;top:0;height:100vh;width:350px;background:#fff;z-index:180;transform:translateX(100%);transition:transform 0.3s ease;display:flex;flex-direction:column;box-shadow:-6px 0 30px rgba(0,0,0,0.12);}
@@ -221,7 +215,7 @@ footer p{font-size:12px;margin-bottom:6px;}
 .ct-price{font-size:20px;font-weight:700;color:var(--p);}
 .cart-co-btn{width:100%;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:12px;border-radius:22px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
 
-/* CHECKOUT MODAL */
+/* CHECKOUT */
 .co-overlay{display:none;position:fixed;inset:0;background:rgba(45,10,30,0.6);z-index:200;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);}
 .co-overlay.open{display:flex;}
 .co-box{background:#fff;border-radius:20px;padding:24px;width:100%;max-width:400px;position:relative;animation:popIn 0.25s ease;border-top:4px solid var(--p);max-height:90vh;overflow-y:auto;}
@@ -245,11 +239,16 @@ footer p{font-size:12px;margin-bottom:6px;}
 @keyframes bounce{0%,100%{transform:scale(1)}30%{transform:scale(1.3)}60%{transform:scale(0.9)}}
 .bounce{animation:bounce 0.4s ease;}
 
+@media(max-width:900px){
+  .slide-inner{height:280px;}
+  .slide-h{font-size:32px;}
+  .slide-content{padding:0 30px;}
+}
 @media(max-width:768px){
-  .slide-inner{grid-template-columns:1fr;gap:0;min-height:auto;}
-  .slide-visual{min-height:200px;padding:10px 0;}
-  .slide-text{padding:24px 0 10px;}
-  .slide-h1{font-size:24px;}
+  .slide-inner{height:auto;flex-direction:column;padding:24px 0 80px;}
+  .slide-content{max-width:100%;padding:24px 20px 0;}
+  .slide-img-area{position:relative;width:100%;height:180px;}
+  .slide-h{font-size:26px;}
   nav{display:none;}
   .cart-drawer{width:100%;}
   .pd-layout{grid-template-columns:1fr;}
@@ -281,80 +280,115 @@ footer p{font-size:12px;margin-bottom:6px;}
   <span class="dbadge soon">Chapai</span>
 </div>
 
-<!-- ══ HERO SLIDER ══ -->
+<!-- DARAZ STYLE SLIDER -->
 <div class="slider-wrap" id="sliderWrap">
   <div class="slider-track" id="sliderTrack">
 
-    <!-- Slide 1 -->
- <div class="slide" style="background:linear-gradient(135deg,#fff0f9,#ffe4f5);">
-      <div class="slide-inner">
-        <div class="slide-text">
-          <div class="slide-eyebrow"><span class="sdot"></span><span>১০০% Halal · প্রাকৃতিক</span></div>
-          <h1 class="slide-h1">আপনার সৌন্দর্যের<br><span class="hl">প্রাকৃতিক রহস্য 🌸</span></h1>
-          <p class="slide-p">হাতে তৈরি, বাংলাদেশি প্রাকৃতিক উপাদানে তৈরি প্রিমিয়াম কসমেটিক।</p>
-          <div class="slide-btns"><a href="#products" class="btn-p">🌸 পণ্য দেখুন</a><button class="btn-ol" onclick="openCart()">🛒 কার্ট</button></div>
+    <!-- SLIDE 1: Brand intro - Deep Pink -->
+    <div class="slide">
+      <div class="slide-inner" style="background:linear-gradient(120deg,#c0006a 0%,#e91e8c 50%,#ff4db8 100%);">
+        <div class="deco-circle dc1" style="background:#fff;"></div>
+        <div class="deco-circle dc2" style="background:#fff;"></div>
+        <div class="deco-circle dc3" style="background:#ffd6f0;"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span>🌸 ১০০% HALAL · প্রাকৃতিক</span></div>
+          <div class="slide-h" style="color:#fff;">আপনার সৌন্দর্যের<br><span style="color:#ffd6f0;">রহস্য উন্মোচন</span></div>
+          <div class="slide-sub" style="color:rgba(255,255,255,0.85);">হাতে তৈরি প্রিমিয়াম কসমেটিক। Naogaon জেলায় ফ্রি হোম ডেলিভারি।</div>
+          <div class="slide-badges">
+            <div class="slide-badge-item"><div class="bi">🚚</div><div class="bt">ফ্রি ডেলিভারি</div></div>
+            <div class="slide-badge-item"><div class="bi">✅</div><div class="bt">Halal Certified</div></div>
+            <div class="slide-badge-item"><div class="bi">💰</div><div class="bt">Cash on Delivery</div></div>
+          </div>
+          <div class="slide-btns">
+            <a href="#products" class="btn-shop" style="color:var(--p);">পণ্য দেখুন →</a>
+            <button class="btn-shop-outline" onclick="openCart()">🛒 কার্ট দেখুন</button>
+          </div>
         </div>
-        <div class="slide-visual">
-          <div class="slide-blob"></div>
-          <div class="slide-emoji">🧴</div>
-          <div class="slide-badge sb1"><div class="sb-icon">⭐</div><div class="sb-lbl">Halal Certified</div></div>
-          <div class="slide-badge sb2"><div class="sb-icon">🚚</div><div class="sb-lbl">ফ্রি ডেলিভারি</div><div class="sb-sub">Naogaon</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
- <div class="slide" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);">
-      <div class="slide-inner">
-        <div class="slide-text">
-          <div class="slide-eyebrow"><span class="sdot"></span><span>বেস্টসেলার পণ্য</span></div>
-          <h1 class="slide-h1">USA Herbal<br><span class="hl">Hair Oil 🧴</span></h1>
-          <p class="slide-p">চুল পড়া বন্ধ করে। চুল ঘন, মজবুত ও উজ্জ্বল করে তোলে। ২০০ ml — মাত্র ৳৩২০!</p>
-          <div class="slide-btns"><button class="btn-p" onclick="openPDByIndex(0)">বিস্তারিত দেখুন</button><button class="btn-ol" onclick="quickAdd(0)">🛒 কার্টে যোগ করুন</button></div>
-        </div>
-        <div class="slide-visual">
-          <div class="slide-blob"></div>
-          <div class="slide-emoji">🧴</div>
-          <div class="slide-badge sb1"><div class="sb-icon">💰</div><div class="sb-lbl">৳৩২০</div><div class="sb-sub">200ml</div></div>
-          <div class="slide-badge sb2"><div class="sb-icon">🔥</div><div class="sb-lbl">বেস্টসেলার</div></div>
+        <div class="slide-img-area">
+          <div class="slide-emoji-big">🧴</div>
         </div>
       </div>
     </div>
 
-<!-- Slide 3 -->
-   <div class="slide" style="background:linear-gradient(135deg,#fff0f5,#ffe4ef);">
-      <div class="slide-inner">
-        <div class="slide-text">
-          <div class="slide-eyebrow"><span class="sdot"></span><span>Hair Removal Cream</span></div>
-          <h1 class="slide-h1">Touch & Clean<br><span class="hl">Hair Removal ✨</span></h1>
-          <p class="slide-p">মাত্র ৩-৫ মিনিটে অবাঞ্ছিত লোম দূর করুন। ব্যথামুক্ত, নিরাপদ। ৩০ gm — মাত্র ৳৯৫!</p>
-          <div class="slide-btns"><button class="btn-p" onclick="openPDByIndex(2)">বিস্তারিত দেখুন</button><button class="btn-ol" onclick="quickAdd(2)">🛒 কার্টে যোগ করুন</button></div>
+    <!-- SLIDE 2: Hair Oil - Golden -->
+    <div class="slide">
+      <div class="slide-inner" style="background:linear-gradient(120deg,#b45309 0%,#d97706 50%,#f59e0b 100%);">
+        <div class="deco-circle dc1" style="background:#fff;"></div>
+        <div class="deco-circle dc2" style="background:#fef3c7;"></div>
+        <div class="deco-circle dc3" style="background:#fcd34d;"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span>🔥 বেস্টসেলার পণ্য</span></div>
+          <div class="slide-h" style="color:#fff;">USA HERBAL<br><span style="color:#fef3c7;">HAIR OIL</span></div>
+          <div class="slide-sub" style="color:rgba(255,255,255,0.9);">চুল পড়া বন্ধ করে। চুল ঘন, মজবুত ও উজ্জ্বল করে তোলে। ২০০ ml মাত্র ৳৩২০!</div>
+          <div class="slide-badges">
+            <div class="slide-badge-item"><div class="bi">💰</div><div class="bt">৳৩২০ / 200ml</div></div>
+            <div class="slide-badge-item"><div class="bi">🌿</div><div class="bt">প্রাকৃতিক উপাদান</div></div>
+          </div>
+          <div class="slide-btns">
+            <button class="btn-shop" style="color:#b45309;" onclick="openPDByIndex(0)">বিস্তারিত দেখুন →</button>
+            <button class="btn-shop-outline" onclick="quickAdd(0)">🛒 কার্টে যোগ করুন</button>
+          </div>
         </div>
-    <!-- Slide 4 -->
-   <div class="slide" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
-      <div class="slide-inner">
-        <div class="slide-text">
-          <div class="slide-eyebrow"><span class="sdot"></span><span>অলিভ অয়েল</span></div>
-          <h1 class="slide-h1">Joytun Olive Oil<br><span class="hl">প্রাকৃতিক তেল 🫒</span></h1>
-          <p class="slide-p">ত্বক ও চুলের পুষ্টি জোগায়। ভিটামিন E সমৃদ্ধ। ১০০ ml — মাত্র ৳৩৪৫!</p>
-          <div class="slide-btns"><button class="btn-p" onclick="openPDByIndex(3)">বিস্তারিত দেখুন</button><button class="btn-ol" onclick="quickAdd(3)">🛒 কার্টে যোগ করুন</button></div>
+        <div class="slide-img-area">
+          <div class="slide-emoji-big">🧴</div>
         </div>
-        <div class="slide-visual">
-          <div class="slide-blob" style="background:radial-gradient(circle,#fef3c7,transparent 70%)"></div>
-          <div class="slide-emoji">🫒</div>
-          <div class="slide-badge sb1"><div class="sb-icon">💰</div><div class="sb-lbl">৳৩৪৫</div><div class="sb-sub">100ml</div></div>
-          <div class="slide-badge sb2"><div class="sb-icon">🌿</div><div class="sb-lbl">Vitamin E</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Hair Removal - Pink with image -->
+    <div class="slide">
+      <div class="slide-inner" style="background:linear-gradient(120deg,#9d174d 0%,#db2777 50%,#f472b6 100%);">
+        <div class="deco-circle dc1" style="background:#fff;"></div>
+        <div class="deco-circle dc2" style="background:#fce7f3;"></div>
+        <div class="deco-circle dc3" style="background:#fbcfe8;"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span>✨ HAIR REMOVAL CREAM</span></div>
+          <div class="slide-h" style="color:#fff;">TOUCH & CLEAN<br><span style="color:#fce7f3;">HAIR REMOVAL</span></div>
+          <div class="slide-sub" style="color:rgba(255,255,255,0.9);">মাত্র ৩-৫ মিনিটে অবাঞ্ছিত লোম দূর করুন। ব্যথামুক্ত, নিরাপদ। ৩০ gm মাত্র ৳৯৫!</div>
+          <div class="slide-badges">
+            <div class="slide-badge-item"><div class="bi">⏱️</div><div class="bt">৩-৫ মিনিট</div></div>
+            <div class="slide-badge-item"><div class="bi">💰</div><div class="bt">মাত্র ৳৯৫</div></div>
+            <div class="slide-badge-item"><div class="bi">🌸</div><div class="bt">Smooth Skin</div></div>
+          </div>
+          <div class="slide-btns">
+            <button class="btn-shop" style="color:#9d174d;" onclick="openPDByIndex(2)">বিস্তারিত দেখুন →</button>
+            <button class="btn-shop-outline" onclick="quickAdd(2)">🛒 কার্টে যোগ করুন</button>
+          </div>
+        </div>
+        <div class="slide-img-area">
+          <img src="https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png" alt="Touch & Clean Hair Removal"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Olive Oil - Green -->
+    <div class="slide">
+      <div class="slide-inner" style="background:linear-gradient(120deg,#14532d 0%,#16a34a 50%,#4ade80 100%);">
+        <div class="deco-circle dc1" style="background:#fff;"></div>
+        <div class="deco-circle dc2" style="background:#dcfce7;"></div>
+        <div class="deco-circle dc3" style="background:#bbf7d0;"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span>🫒 প্রাকৃতিক অলিভ অয়েল</span></div>
+          <div class="slide-h" style="color:#fff;">JOYTUN<br><span style="color:#dcfce7;">OLIVE OIL</span></div>
+          <div class="slide-sub" style="color:rgba(255,255,255,0.9);">ত্বক ও চুলের পুষ্টি জোগায়। ভিটামিন E সমৃদ্ধ। ১০০ ml মাত্র ৳৩৪৫!</div>
+          <div class="slide-badges">
+            <div class="slide-badge-item"><div class="bi">💰</div><div class="bt">৳৩৪৫ / 100ml</div></div>
+            <div class="slide-badge-item"><div class="bi">🌿</div><div class="bt">Vitamin E</div></div>
+          </div>
+          <div class="slide-btns">
+            <button class="btn-shop" style="color:#14532d;" onclick="openPDByIndex(3)">বিস্তারিত দেখুন →</button>
+            <button class="btn-shop-outline" onclick="quickAdd(3)">🛒 কার্টে যোগ করুন</button>
+          </div>
+        </div>
+        <div class="slide-img-area">
+          <div class="slide-emoji-big">🫒</div>
         </div>
       </div>
     </div>
 
   </div>
-
-  <!-- Arrows -->
   <button class="slider-arrow sa-left" onclick="slidePrev()">❮</button>
   <button class="slider-arrow sa-right" onclick="slideNext()">❯</button>
-
-  <!-- Dots -->
   <div class="slider-dots" id="sliderDots"></div>
 </div>
 
@@ -379,7 +413,6 @@ footer p{font-size:12px;margin-bottom:6px;}
   <div class="pgrid" id="productsGrid"></div>
 </div>
 
-<!-- WHY -->
 <div class="why-bg" id="why">
   <div class="why-inner">
     <div class="why-head"><h2>কেন Usa GlowBD বেছে নেবেন? 💕</h2><p>হাজারো নারীর বিশ্বস্ত পছন্দ</p></div>
@@ -418,13 +451,11 @@ footer p{font-size:12px;margin-bottom:6px;}
   <p style="margin-top:10px;font-size:10px;color:#444;">© 2026 Usa GlowBD. All rights reserved.</p>
 </footer>
 
-<!-- ══ PRODUCT DETAIL MODAL ══ -->
+<!-- PRODUCT DETAIL -->
 <div class="pd-overlay" id="pdOverlay" onclick="if(event.target===this)closePD()">
   <div class="pd-modal">
     <button class="pd-close" onclick="closePD()">✕</button>
     <div class="pd-layout">
-
-      <!-- LEFT: Gallery -->
       <div class="pd-gallery">
         <div class="pd-main-img" id="pdMainImg">
           <div class="pd-badge-wrap" id="pdBadge"></div>
@@ -432,30 +463,22 @@ footer p{font-size:12px;margin-bottom:6px;}
         </div>
         <div class="pd-thumbs" id="pdThumbs"></div>
       </div>
-
-      <!-- RIGHT: Info -->
       <div class="pd-info">
         <div class="pd-name" id="pdName"></div>
         <div class="pd-size-lbl" id="pdSizeLbl"></div>
-
         <div class="pd-price-row">
           <span class="pd-price" id="pdPrice"></span>
           <span class="pd-orig" id="pdOrig"></span>
           <span class="pd-discount" id="pdDisc"></span>
         </div>
-
         <div class="pd-desc" id="pdDesc"></div>
         <div class="pd-features" id="pdFeats"></div>
-
-        <!-- SUMMARY -->
-        <div class="pd-summary" id="pdSummary">
+        <div class="pd-summary">
           <div class="pd-sum-row"><span>পণ্যের দাম</span><span id="sum-price">৳০</span></div>
           <div class="pd-sum-row discount"><span>ছাড়</span><span id="sum-disc">-৳০</span></div>
           <div class="pd-sum-row delivery"><span>ডেলিভারি চার্জ</span><span id="sum-del">ফ্রি (Naogaon)</span></div>
           <div class="pd-sum-row"><span>মোট</span><span id="sum-total">৳০</span></div>
         </div>
-
-        <!-- QTY -->
         <div class="pd-qty-row">
           <span class="pd-qty-lbl">পরিমাণ:</span>
           <div class="qty-box">
@@ -464,8 +487,6 @@ footer p{font-size:12px;margin-bottom:6px;}
             <button class="qb" onclick="changeDetailQty(1)">+</button>
           </div>
         </div>
-
-        <!-- ACTIONS -->
         <div class="pd-actions">
           <button class="pd-buy-btn" onclick="buyNow()">⚡ Buy Now</button>
           <button class="pd-add-cart-btn" onclick="addFromDetail()">🛒 Add to Cart</button>
@@ -475,12 +496,12 @@ footer p{font-size:12px;margin-bottom:6px;}
   </div>
 </div>
 
-<!-- CART DRAWER -->
+<!-- CART -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-hdr"><h3>🛒 আমার কার্ট</h3><button class="cart-cls" onclick="closeCart()">✕</button></div>
   <div class="cart-items-wrap" id="cartItemsWrap">
-    <div class="cart-empty"><div class="cart-empty-ico">🛒</div><p style="font-weight:600;color:var(--dark);">কার্ট খালি</p><p style="font-size:12px;margin-top:4px;">পণ্যে click করে কার্টে যোগ করুন</p></div>
+    <div class="cart-empty"><div class="cart-empty-ico">🛒</div><p style="font-weight:600;color:var(--dark);">কার্ট খালি</p><p style="font-size:12px;margin-top:4px;">পণ্যে click করে যোগ করুন</p></div>
   </div>
   <div class="cart-foot" id="cartFoot" style="display:none;">
     <div class="ct-row"><span class="ct-lbl">মোট:</span><span class="ct-price" id="cartTotal">৳০</span></div>
@@ -488,7 +509,7 @@ footer p{font-size:12px;margin-bottom:6px;}
   </div>
 </div>
 
-<!-- CHECKOUT MODAL -->
+<!-- CHECKOUT -->
 <div class="co-overlay" id="coOverlay">
   <div class="co-box">
     <button class="co-cls" onclick="closeCheckout()">✕</button>
@@ -519,50 +540,30 @@ const themes={
   green:{primary:'#16a34a',primary2:'#22c55e',primary3:'#86efac',primary4:'#dcfce7',primary5:'#f0fdf4',dark:'#0a1a0a'},
   gold:{primary:'#d97706',primary2:'#f59e0b',primary3:'#fcd34d',primary4:'#fef3c7',primary5:'#fffbeb',dark:'#1a1000'},
 };
-function applyTheme(n){
-  var t=themes[n]||themes.pink;
-  var r=document.documentElement;
-  r.style.setProperty('--p',t.primary);
-  r.style.setProperty('--p2',t.primary2);
-  r.style.setProperty('--p3',t.primary3);
-  r.style.setProperty('--p4',t.primary4);
-  r.style.setProperty('--p5',t.primary5);
-  r.style.setProperty('--dark',t.dark);
-}
-// Apply pink immediately as default
+function applyTheme(n){var t=themes[n]||themes.pink;var r=document.documentElement;r.style.setProperty('--p',t.primary);r.style.setProperty('--p2',t.primary2);r.style.setProperty('--p3',t.primary3);r.style.setProperty('--p4',t.primary4);r.style.setProperty('--p5',t.primary5);r.style.setProperty('--dark',t.dark);}
 applyTheme('pink');
-// Then listen for Firebase theme changes
 onValue(ref(db,'settings/theme'),function(s){applyTheme(s.val()||'pink');});
 
 var defaultProducts=[
   {name:'USA Herbal Hair Oil',size:'200ml',price:320,origPrice:400,desc:'চুল পড়া বন্ধ করে। চুল ঘন, মজবুত ও উজ্জ্বল করে তোলে। নিয়মিত ব্যবহারে চুলের বৃদ্ধি বাড়ে।',emoji:'🧴',badge:'hot',img:null,images:[],features:['চুল পড়া বন্ধ করে','চুল ঘন করে','স্কাল্প পুষ্টি দেয়','প্রাকৃতিক উপাদান']},
   {name:'Medicated Herbal Hair Care',size:'200ml',price:440,origPrice:550,desc:'চুলের গোড়া শক্ত করে। খুশকি ও চুলকানি দূর করে। বিশেষজ্ঞ ফর্মুলায় তৈরি।',emoji:'🌿',badge:'new',img:null,images:[],features:['খুশকি দূর করে','চুলের গোড়া শক্ত করে','চুলকানি বন্ধ করে','Medicated Formula']},
-  {name:'Touch & Clean Hair Removal',size:'30gm',price:95,origPrice:120,desc:'সহজে ও নিরাপদে অবাঞ্ছিত লোম দূর করে। ব্যথামুক্ত ও দ্রুত কার্যকর।',emoji:'✨',badge:'',img:null,images:[],features:['ব্যথামুক্ত','দ্রুত কার্যকর','ত্বক মসৃণ রাখে','নিরাপদ উপাদান']},
+  {name:'Touch & Clean Hair Removal',size:'30gm',price:95,origPrice:120,desc:'সহজে ও নিরাপদে অবাঞ্ছিত লোম দূর করে। ব্যথামুক্ত ও দ্রুত কার্যকর।',emoji:'✨',badge:'',img:'https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png',images:['https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png'],features:['ব্যথামুক্ত','দ্রুত কার্যকর','ত্বক মসৃণ রাখে','নিরাপদ উপাদান']},
   {name:'Joytun Olive Oil',size:'100ml',price:345,origPrice:420,desc:'ত্বক ও চুলের পুষ্টি জোগায়। প্রাকৃতিক আর্দ্রতা ধরে রাখে। সারাদিন ত্বক নরম রাখে।',emoji:'🫒',badge:'',img:null,images:[],features:['ত্বক নরম করে','চুলে পুষ্টি দেয়','আর্দ্রতা ধরে রাখে','ভিটামিন E সমৃদ্ধ']},
   {name:'USA Night Cream',size:'',price:95,origPrice:130,desc:'রাতে ঘুমের মধ্যে ত্বক ফর্সা, মসৃণ ও উজ্জ্বল করে তোলে। ঘুমের সময় ত্বকের গভীরে কাজ করে।',emoji:'🌙',badge:'new',img:null,images:[],features:['ত্বক ফর্সা করে','রাতে কাজ করে','মসৃণ করে','গভীর পুষ্টি দেয়']},
 ];
-
-// Load default products immediately so clicks work right away
 window._products=defaultProducts;
 renderGrid(window._products);
-
-// Then update from Firebase if data exists
-onValue(ref(db,'products'),function(snap){
-  var data=snap.val();
-  if(data){
-    window._products=Object.values(data);
-    renderGrid(window._products);
-  }
-});
+onValue(ref(db,'products'),function(snap){var data=snap.val();if(data){window._products=Object.values(data);renderGrid(window._products);}});
 
 function renderGrid(list){
   var g=document.getElementById('productsGrid');g.innerHTML='';
   list.forEach(function(p,i){
-    var imgH=p.img?'<img src="'+p.img+'" alt="'+p.name+'"/><span class="pc-emoji" style="display:none">'+p.emoji+'</span>':'<span class="pc-emoji">'+p.emoji+'</span>';
     var bH=p.badge?'<span class="pc-badge '+p.badge+'">'+(p.badge==='hot'?'বেস্টসেলার':'নতুন')+'</span>':'';
+    var imgContent=p.img?'<img src="'+p.img+'" alt="'+p.name+'"/>':'<span class="pc-emoji">'+p.emoji+'</span>';
     var c=document.createElement('div');c.className='pcard';
-    c.innerHTML='<div class="pc-img" onclick="openPDByIndex('+i+')">'+(p.img?'<img src="'+p.img+'"/><span class="pc-emoji" style="display:none">'+p.emoji+'</span>':'<span class="pc-emoji">'+p.emoji+'</span>')+bH+'<div class="pc-hint">👆 বিস্তারিত দেখুন</div></div>'
-      +'<div class="pc-body"><div class="pc-name" onclick="openPDByIndex('+i+')">'+p.name+'</div>'+(p.size?'<div class="pc-size">📦 '+p.size+'</div>':'')+'<div class="pc-desc">'+p.desc.substring(0,55)+'...</div>'
+    c.innerHTML='<div class="pc-img" onclick="openPDByIndex('+i+')">'+imgContent+bH+'<div class="pc-hint">👆 বিস্তারিত দেখুন</div></div>'
+      +'<div class="pc-body"><div class="pc-name" onclick="openPDByIndex('+i+')">'+p.name+'</div>'+(p.size?'<div class="pc-size">📦 '+p.size+'</div>':'')
+      +'<div class="pc-desc">'+p.desc.substring(0,55)+'...</div>'
       +'<div class="pc-foot"><span class="pc-price">৳'+p.price+'</span>'
       +'<button class="add-btn" id="cb'+i+'" onclick="quickAdd('+i+',this)">🛒 কার্টে যোগ করুন</button></div></div>';
     g.appendChild(c);
@@ -571,31 +572,21 @@ function renderGrid(list){
 
 window.openPDByIndex=function(i){
   if(!window._products)return;
-  var p=window._products[i];
-  window._pdP=p;window._pdQty=1;
-  // badge
+  var p=window._products[i];window._pdP=p;window._pdQty=1;
   document.getElementById('pdBadge').innerHTML=p.badge?'<span class="pc-badge '+p.badge+'">'+(p.badge==='hot'?'বেস্টসেলার':'নতুন')+'</span>':'';
-  // main image
   var mi=document.getElementById('pdMainImg');
   var old=mi.querySelector('img');if(old)old.remove();
   document.getElementById('pdEmoji').style.display='';
   document.getElementById('pdEmoji').textContent=p.emoji;
   if(p.img){var im=document.createElement('img');im.src=p.img;im.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0;';mi.appendChild(im);document.getElementById('pdEmoji').style.display='none';}
-  // thumbs
   var th=document.getElementById('pdThumbs');th.innerHTML='';
   var imgs=p.images&&p.images.length?p.images:(p.img?[p.img]:[]);
-  if(imgs.length){
-    imgs.forEach(function(src,ti){var t=document.createElement('div');t.className='pd-thumb'+(ti===0?' active':'');t.innerHTML='<img src="'+src+'" onclick="switchImg(\''+src+'\',this)"/>';th.appendChild(t);});
-  }else{
-    var t=document.createElement('div');t.className='pd-thumb active';t.textContent=p.emoji;th.appendChild(t);
-  }
-  // info
+  if(imgs.length){imgs.forEach(function(src,ti){var t=document.createElement('div');t.className='pd-thumb'+(ti===0?' active':'');t.innerHTML='<img src="'+src+'" onclick="switchImg(\''+src+'\',this)"/>';th.appendChild(t);});}
+  else{var t=document.createElement('div');t.className='pd-thumb active';t.textContent=p.emoji;th.appendChild(t);}
   document.getElementById('pdName').textContent=p.name;
   document.getElementById('pdSizeLbl').textContent=p.size?'📦 '+p.size:'';
   document.getElementById('pdPrice').textContent='৳'+p.price;
-  var orig=p.origPrice||0;
-  var disc=orig>p.price?orig-p.price:0;
-  var discPct=disc?Math.round(disc/orig*100):0;
+  var orig=p.origPrice||0;var disc=orig>p.price?orig-p.price:0;var discPct=disc?Math.round(disc/orig*100):0;
   document.getElementById('pdOrig').textContent=orig>p.price?'৳'+orig:'';
   document.getElementById('pdDisc').textContent=discPct?discPct+'% ছাড়':'';
   document.getElementById('pdDesc').textContent=p.desc;
@@ -606,114 +597,48 @@ window.openPDByIndex=function(i){
   document.getElementById('pdOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 };
-
-window.switchImg=function(src,el){
-  var mi=document.getElementById('pdMainImg');
-  var old=mi.querySelector('img');if(old)old.remove();
-  document.getElementById('pdEmoji').style.display='none';
-  var im=document.createElement('img');im.src=src;im.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0;';mi.appendChild(im);
-  document.querySelectorAll('.pd-thumb').forEach(function(t){t.classList.remove('active');});
-  el.parentElement.classList.add('active');
-};
-
-function updateDetailSummary(p,qty){
-  var orig=p.origPrice||p.price;
-  var disc=orig>p.price?(orig-p.price)*qty:0;
-  var total=p.price*qty;
-  document.getElementById('sum-price').textContent='৳'+(orig*qty);
-  document.getElementById('sum-disc').textContent=disc?'-৳'+disc:'৳০';
-  document.getElementById('sum-del').textContent='ফ্রি (Naogaon)';
-  document.getElementById('sum-total').textContent='৳'+total;
-}
-
-window.changeDetailQty=function(d){
-  var q=parseInt(document.getElementById('detailQty').textContent)+d;
-  if(q<1)q=1;if(q>20)q=20;
-  document.getElementById('detailQty').textContent=q;
-  window._pdQty=q;
-  updateDetailSummary(window._pdP,q);
-};
-
+window.switchImg=function(src,el){var mi=document.getElementById('pdMainImg');var old=mi.querySelector('img');if(old)old.remove();document.getElementById('pdEmoji').style.display='none';var im=document.createElement('img');im.src=src;im.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0;';mi.appendChild(im);document.querySelectorAll('.pd-thumb').forEach(function(t){t.classList.remove('active');});el.parentElement.classList.add('active');};
+function updateDetailSummary(p,qty){var orig=p.origPrice||p.price;var disc=orig>p.price?(orig-p.price)*qty:0;var total=p.price*qty;document.getElementById('sum-price').textContent='৳'+(orig*qty);document.getElementById('sum-disc').textContent=disc?'-৳'+disc:'৳০';document.getElementById('sum-del').textContent='ফ্রি (Naogaon)';document.getElementById('sum-total').textContent='৳'+total;}
+window.changeDetailQty=function(d){var q=parseInt(document.getElementById('detailQty').textContent)+d;if(q<1)q=1;if(q>20)q=20;document.getElementById('detailQty').textContent=q;window._pdQty=q;updateDetailSummary(window._pdP,q);};
 window.closePD=function(){document.getElementById('pdOverlay').classList.remove('open');document.body.style.overflow='';};
-
-window.addFromDetail=function(){
-  if(!window._pdP)return;
-  var p=window._pdP;var q=window._pdQty||1;
-  for(var i=0;i<q;i++){addToCart(p);}
-  var btn=document.querySelector('.pd-add-cart-btn');
-  btn.textContent='✅ কার্টে যোগ হয়েছে!';
-  setTimeout(function(){closePD();btn.innerHTML='🛒 Add to Cart';},900);
-};
-
-window.buyNow=function(){
-  addFromDetail();
-  setTimeout(function(){openCheckout();},950);
-};
-
-window.quickAdd=function(i,btn){
-  if(!window._products)return;
-  addToCart(window._products[i]);
-  if(btn){btn.className='add-btn added';btn.textContent='✅ যোগ হয়েছে!';setTimeout(function(){btn.className='add-btn';btn.innerHTML='🛒 কার্টে যোগ করুন';},1500);}
-};
-
+window.addFromDetail=function(){if(!window._pdP)return;var p=window._pdP;var q=window._pdQty||1;for(var i=0;i<q;i++){addToCart(p);}var btn=document.querySelector('.pd-add-cart-btn');btn.textContent='✅ কার্টে যোগ হয়েছে!';setTimeout(function(){closePD();btn.innerHTML='🛒 Add to Cart';},900);};
+window.buyNow=function(){addFromDetail();setTimeout(function(){openCheckout();},950);};
+window.quickAdd=function(i,btn){if(!window._products)return;addToCart(window._products[i]);if(btn){btn.className='add-btn added';btn.textContent='✅ যোগ হয়েছে!';setTimeout(function(){btn.className='add-btn';btn.innerHTML='🛒 কার্টে যোগ করুন';},1500);}};
 window.saveOrderToFirebase=function(d){push(ref(db,'orders'),d);};
 </script>
 
 <script>
-
-/* ══ SLIDER ══ */
+/* SLIDER */
 var slideIdx=0,slideTotal=4,sliderTimer;
 function initSlider(){
   var track=document.getElementById('sliderTrack');
   var dotsEl=document.getElementById('sliderDots');
-  // Clone সব slides করো infinite loop এর জন্য
   var slides=track.innerHTML;
-  track.innerHTML=slides+slides; // দুইবার করো
+  track.innerHTML=slides+slides;
   for(var i=0;i<slideTotal;i++){
-    var d=document.createElement('button');
-    d.className='sdot-btn'+(i===0?' active':'');
+    var d=document.createElement('button');d.className='sdot-btn'+(i===0?' active':'');
     d.onclick=(function(idx){return function(){jumpToSlide(idx);};})(i);
     dotsEl.appendChild(d);
   }
   startAuto();
 }
-function jumpToSlide(n){
-  slideIdx=n;
-  var track=document.getElementById('sliderTrack');
-  track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-  track.style.transform='translateX(-'+slideIdx+'00%)';
-  document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===n%slideTotal);});
-  resetAuto();
-}
+function jumpToSlide(n){slideIdx=n;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===n%slideTotal);});resetAuto();}
 function startAuto(){
   sliderTimer=setInterval(function(){
-    var track=document.getElementById('sliderTrack');
-    slideIdx++;
+    var track=document.getElementById('sliderTrack');slideIdx++;
     track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
     track.style.transform='translateX(-'+slideIdx+'00%)';
     document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});
-    // শেষ real slide এ পৌঁছালে চুপে চুপে প্রথমে ফিরে যাও
-    if(slideIdx>=slideTotal){
-      setTimeout(function(){
-        track.style.transition='none';
-        track.style.transform='translateX(0%)';
-        slideIdx=0;
-        document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});
-      },650);
-    }
+    if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}
   },3500);
 }
 function slideNext(){slideIdx++;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}resetAuto();}
 function slidePrev(){if(slideIdx<=0){slideIdx=slideTotal;}slideIdx--;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});resetAuto();}
 function resetAuto(){clearInterval(sliderTimer);startAuto();}
-/* ══ CART ══ */
+
+/* CART */
 var cart=[];
-function addToCart(p){
-  var ex=cart.find(function(i){return i.name===p.name;});
-  if(ex)ex.qty++;else cart.push({name:p.name,price:p.price,size:p.size||'',emoji:p.emoji||'🌸',img:p.img||null,qty:1});
-  updateCartUI();
-  var cc=document.getElementById('cartCnt');cc.classList.add('bounce');setTimeout(function(){cc.classList.remove('bounce');},400);
-}
+function addToCart(p){var ex=cart.find(function(i){return i.name===p.name;});if(ex)ex.qty++;else cart.push({name:p.name,price:p.price,size:p.size||'',emoji:p.emoji||'🌸',img:p.img||null,qty:1});updateCartUI();var cc=document.getElementById('cartCnt');cc.classList.add('bounce');setTimeout(function(){cc.classList.remove('bounce');},400);}
 function updateCartUI(){
   var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
   var ti=cart.reduce(function(s,i){return s+i.qty;},0);
@@ -734,7 +659,6 @@ function cqty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);updateCartU
 function crm(i){cart.splice(i,1);updateCartUI();}
 function openCart(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartDrawer').classList.add('open');document.body.style.overflow='hidden';}
 function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartDrawer').classList.remove('open');document.body.style.overflow='';}
-
 function openCheckout(){
   if(cart.length===0){alert('কার্ট খালি!');return;}
   closeCart();
@@ -752,10 +676,8 @@ function openCheckout(){
 }
 function closeCheckout(){document.getElementById('coOverlay').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('coOverlay').addEventListener('click',function(e){if(e.target===this)closeCheckout();});
-
 function se(id,m){var el=document.getElementById('err-'+id);el.textContent=m;el.style.display='block';}
 function he(id){document.getElementById('err-'+id).style.display='none';}
-
 function submitOrder(){
   var n=document.getElementById('f-name').value.trim();
   var ph=document.getElementById('f-phone').value.trim();
@@ -769,23 +691,15 @@ function submitOrder(){
   if(!ad){se('address','ঠিকানা লিখুন');ok=false;}else he('address');
   if(!ok)return;
   var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
-var pl=cart&&cart.length?cart.map(function(i){return i.name+(i.size?' ('+i.size+')':'')+' × '+i.qty;}).join(', '):'পণ্য নির্বাচন করুন';
+  var pl=cart&&cart.length?cart.map(function(i){return i.name+(i.size?' ('+i.size+')':'')+' × '+i.qty;}).join(', '):'পণ্য নির্বাচন করুন';
   var now=new Date();
-  var od={name:n,phone:ph,products:pl||'পণ্য তালিকা নেই',total:total,district:di,address:ad,note:no||'',status:'new',time:now.toLocaleDateString('bn-BD')+' '+now.toLocaleTimeString('bn-BD')};
+  var od={name:n,phone:ph,products:pl,total:total,district:di,address:ad,note:no||'',status:'new',time:now.toLocaleDateString('bn-BD')+' '+now.toLocaleTimeString('bn-BD')};
   try{if(window.saveOrderToFirebase)window.saveOrderToFirebase(od);}catch(e){console.log('FB error',e);}
-  var msg='🌸 নতুন অর্ডার - Usa GlowBD\n\n👤 নাম: '+n+'\n📱 ফোন: '+ph+'\n📦 পণ্য:\n'+cart.map(function(i){return '  \u2022 '+i.name+(i.size?' ('+i.size+')':'')+' \u00d7 '+i.qty+' = \u09f3'+(i.price*i.qty);}).join('\n')+'\n💰 মোট: \u09f3'+total+'\n📍 জেলা: '+di+'\n🏠 ঠিকানা: '+ad+(no?'\n📝 নোট: '+no:'');
+  var msg='🌸 নতুন অর্ডার - Usa GlowBD\n\n👤 নাম: '+n+'\n📱 ফোন: '+ph+'\n📦 পণ্য:\n'+cart.map(function(i){return '  • '+i.name+(i.size?' ('+i.size+')':'')+' × '+i.qty+' = ৳'+(i.price*i.qty);}).join('\n')+'\n💰 মোট: ৳'+total+'\n📍 জেলা: '+di+'\n🏠 ঠিকানা: '+ad+(no?'\n📝 নোট: '+no:'');
   document.getElementById('coSubBtn').style.display='none';
   document.getElementById('coOk').style.display='block';
   cart=[];updateCartUI();
-  setTimeout(function(){
-  var waLink=document.createElement('a');
-  waLink.href='https://wa.me/8801740333641?text='+encodeURIComponent(msg);
-  waLink.target='_blank';
-  waLink.rel='noopener';
-  document.body.appendChild(waLink);
-  waLink.click();
-  document.body.removeChild(waLink);
-},800);
+  setTimeout(function(){var waLink=document.createElement('a');waLink.href='https://wa.me/8801740333641?text='+encodeURIComponent(msg);waLink.target='_blank';waLink.rel='noopener';document.body.appendChild(waLink);waLink.click();document.body.removeChild(waLink);},800);
 }
 initSlider();
 </script>
