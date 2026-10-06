@@ -607,35 +607,230 @@ window.quickAdd=function(i,btn){if(!window._products)return;addToCart(window._pr
 window.saveOrderToFirebase=function(d){push(ref(db,'orders'),d);};
 </script>
 
+```javascript
 <script>
-/* SLIDER */
-var slideIdx=0,slideTotal=4,sliderTimer;
-function initSlider(){
-  var track=document.getElementById('sliderTrack');
-  var dotsEl=document.getElementById('sliderDots');
-  var slides=track.innerHTML;
-  track.innerHTML=slides+slides;
-  for(var i=0;i<slideTotal;i++){
-    var d=document.createElement('button');d.className='sdot-btn'+(i===0?' active':'');
-    d.onclick=(function(idx){return function(){jumpToSlide(idx);};})(i);
+/* =========================
+   SLIDER
+========================= */
+
+var slideIdx = 0;
+var slideTotal = 4;
+var sliderTimer = null;
+
+function initSlider() {
+
+  var track = document.getElementById('sliderTrack');
+  var dotsEl = document.getElementById('sliderDots');
+
+  if (!track || !dotsEl) return;
+
+  // Original slides duplicate করা
+  var slides = track.innerHTML;
+  track.innerHTML = slides + slides;
+
+  // Dots তৈরি
+  for (var i = 0; i < slideTotal; i++) {
+
+    var d = document.createElement('button');
+
+    d.className = 'sdot-btn' + (i === 0 ? ' active' : '');
+
+    d.onclick = (function(idx) {
+      return function() {
+        jumpToSlide(idx);
+      };
+    })(i);
+
     dotsEl.appendChild(d);
   }
+
   startAuto();
 }
-function jumpToSlide(n){slideIdx=n;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===n%slideTotal);});resetAuto();}
-function startAuto(){
-  if(sliderTimer){clearInterval(sliderTimer);sliderTimer=null;}
-  sliderTimer=setInterval(function(){
-    var track=document.getElementById('sliderTrack');slideIdx++;
-    track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-    track.style.transform='translateX(-'+slideIdx+'00%)';
-    document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});
-    if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}
-  },5000);
+
+
+/* =========================
+   GO TO SLIDE
+========================= */
+
+function jumpToSlide(n) {
+
+  slideIdx = n;
+
+  var track = document.getElementById('sliderTrack');
+
+  if (!track) return;
+
+  track.style.transition =
+    'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+
+  track.style.transform =
+    'translateX(-' + slideIdx + '00%)';
+
+  updateDots();
+
+  resetAuto();
 }
-function slideNext(){slideIdx++;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}resetAuto();}
-function slidePrev(){if(slideIdx<=0){slideIdx=slideTotal;}slideIdx--;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});resetAuto();
-function resetAuto(){if(sliderTimer){clearInterval(sliderTimer);sliderTimer=null;}startAuto();}
+
+
+/* =========================
+   UPDATE DOTS
+========================= */
+
+function updateDots() {
+
+  var dots = document.querySelectorAll('.sdot-btn');
+
+  dots.forEach(function(d, i) {
+
+    d.classList.toggle(
+      'active',
+      i === (slideIdx % slideTotal)
+    );
+
+  });
+}
+
+
+/* =========================
+   AUTO SLIDER
+========================= */
+
+function startAuto() {
+
+  if (sliderTimer) {
+    clearInterval(sliderTimer);
+    sliderTimer = null;
+  }
+
+  sliderTimer = setInterval(function() {
+
+    var track = document.getElementById('sliderTrack');
+
+    if (!track) return;
+
+    slideIdx++;
+
+    track.style.transition =
+      'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+
+    track.style.transform =
+      'translateX(-' + slideIdx + '00%)';
+
+    updateDots();
+
+
+    // Duplicate slides শেষ হলে প্রথম slide-এ ফিরে যাবে
+    if (slideIdx >= slideTotal) {
+
+      setTimeout(function() {
+
+        track.style.transition = 'none';
+
+        track.style.transform = 'translateX(0%)';
+
+        slideIdx = 0;
+
+        updateDots();
+
+      }, 650);
+    }
+
+  }, 5000);
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function slideNext() {
+
+  var track = document.getElementById('sliderTrack');
+
+  if (!track) return;
+
+  slideIdx++;
+
+  track.style.transition =
+    'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+
+  track.style.transform =
+    'translateX(-' + slideIdx + '00%)';
+
+  updateDots();
+
+
+  if (slideIdx >= slideTotal) {
+
+    setTimeout(function() {
+
+      track.style.transition = 'none';
+
+      track.style.transform = 'translateX(0%)';
+
+      slideIdx = 0;
+
+      updateDots();
+
+    }, 650);
+  }
+
+  resetAuto();
+}
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+function slidePrev() {
+
+  var track = document.getElementById('sliderTrack');
+
+  if (!track) return;
+
+
+  if (slideIdx <= 0) {
+
+    // প্রথম slide থেকে previous চাপলে
+    // duplicate শেষ slide-এ যাবে
+    slideIdx = slideTotal;
+
+  }
+
+  slideIdx--;
+
+  track.style.transition =
+    'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+
+  track.style.transform =
+    'translateX(-' + slideIdx + '00%)';
+
+  updateDots();
+
+  resetAuto();
+}
+
+
+/* =========================
+   RESET AUTO TIMER
+========================= */
+
+function resetAuto() {
+
+  if (sliderTimer) {
+
+    clearInterval(sliderTimer);
+
+    sliderTimer = null;
+
+  }
+
+  startAuto();
+}
+```
+
+
 
 /* CART */
 var cart=[];
