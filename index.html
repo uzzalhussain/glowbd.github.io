@@ -57,19 +57,9 @@ nav a:hover{color:#fff;}
 .btn-shop-outline:hover{background:rgba(255,255,255,0.15);}
 
 .slide-img-area{position:absolute;right:0;top:0;bottom:0;width:48%;display:flex;align-items:center;justify-content:center;}
-.slide-img-area img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    object-position:center;
-    filter:drop-shadow(0 20px 40px rgba(0,0,0,0.2));
-}
-
-.slide-img-area .slide-emoji-big{
-    font-size:160px;
-    line-height:1;
-    padding-bottom:20px;
-}
+.slide-img-area img{width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.2));animation:imgFloat 4s ease-in-out infinite;}
+.slide-img-area .slide-emoji-big{font-size:160px;animation:imgFloat 4s ease-in-out infinite;line-height:1;padding-bottom:20px;}
+@keyframes imgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 /* Decorative circles */
 .deco-circle{position:absolute;border-radius:50%;opacity:0.15;}
@@ -354,7 +344,7 @@ footer p{font-size:12px;margin-bottom:6px;}
         <div class="slide-content">
           <div class="slide-tag"><span>✨ HAIR REMOVAL CREAM</span></div>
           <div class="slide-h" style="color:#fff;">TOUCH & CLEAN<br><span style="color:#fce7f3;">HAIR REMOVAL</span></div>
-          <div class="slide-sub" style="color:rgba(255,255,255,0.9);">মাত্র ৩-৫ মিনিটে অবাঞ্ছিত লোম দূর করুন। ব্যথামুক্ত, নিরাপদ। 25 gm মাত্র ৳৯৫!</div>
+          <div class="slide-sub" style="color:rgba(255,255,255,0.9);">মাত্র ৩-৫ মিনিটে অবাঞ্ছিত লোম দূর করুন। ব্যথামুক্ত, নিরাপদ। ৩০ gm মাত্র ৳৯৫!</div>
           <div class="slide-badges">
             <div class="slide-badge-item"><div class="bi">⏱️</div><div class="bt">৩-৫ মিনিট</div></div>
             <div class="slide-badge-item"><div class="bi">💰</div><div class="bt">মাত্র ৳৯৫</div></div>
@@ -557,7 +547,7 @@ onValue(ref(db,'settings/theme'),function(s){applyTheme(s.val()||'pink');});
 var defaultProducts=[
   {name:'USA Herbal Hair Oil',size:'200ml',price:320,origPrice:400,desc:'চুল পড়া বন্ধ করে। চুল ঘন, মজবুত ও উজ্জ্বল করে তোলে। নিয়মিত ব্যবহারে চুলের বৃদ্ধি বাড়ে।',emoji:'🧴',badge:'hot',img:null,images:[],features:['চুল পড়া বন্ধ করে','চুল ঘন করে','স্কাল্প পুষ্টি দেয়','প্রাকৃতিক উপাদান']},
   {name:'Medicated Herbal Hair Care',size:'200ml',price:440,origPrice:550,desc:'চুলের গোড়া শক্ত করে। খুশকি ও চুলকানি দূর করে। বিশেষজ্ঞ ফর্মুলায় তৈরি।',emoji:'🌿',badge:'new',img:null,images:[],features:['খুশকি দূর করে','চুলের গোড়া শক্ত করে','চুলকানি বন্ধ করে','Medicated Formula']},
-  {name:'Touch & Clean Hair Removal',size:'25gm',price:95,origPrice:120,desc:'সহজে ও নিরাপদে অবাঞ্ছিত লোম দূর করে। ব্যথামুক্ত ও দ্রুত কার্যকর।',emoji:'✨',badge:'',img:'https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png',images:['https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png'],features:['ব্যথামুক্ত','দ্রুত কার্যকর','ত্বক মসৃণ রাখে','নিরাপদ উপাদান']},
+  {name:'Touch & Clean Hair Removal',size:'30gm',price:95,origPrice:120,desc:'সহজে ও নিরাপদে অবাঞ্ছিত লোম দূর করে। ব্যথামুক্ত ও দ্রুত কার্যকর।',emoji:'✨',badge:'',img:'https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png',images:['https://raw.githubusercontent.com/uzzalhussain/glowbd.github.io/main/hair%20removal%20er%20heroin.png'],features:['ব্যথামুক্ত','দ্রুত কার্যকর','ত্বক মসৃণ রাখে','নিরাপদ উপাদান']},
   {name:'Joytun Olive Oil',size:'100ml',price:345,origPrice:420,desc:'ত্বক ও চুলের পুষ্টি জোগায়। প্রাকৃতিক আর্দ্রতা ধরে রাখে। সারাদিন ত্বক নরম রাখে।',emoji:'🫒',badge:'',img:null,images:[],features:['ত্বক নরম করে','চুলে পুষ্টি দেয়','আর্দ্রতা ধরে রাখে','ভিটামিন E সমৃদ্ধ']},
   {name:'USA Night Cream',size:'',price:95,origPrice:130,desc:'রাতে ঘুমের মধ্যে ত্বক ফর্সা, মসৃণ ও উজ্জ্বল করে তোলে। ঘুমের সময় ত্বকের গভীরে কাজ করে।',emoji:'🌙',badge:'new',img:null,images:[],features:['ত্বক ফর্সা করে','রাতে কাজ করে','মসৃণ করে','গভীর পুষ্টি দেয়']},
 ];
@@ -634,18 +624,17 @@ function initSlider(){
 }
 function jumpToSlide(n){slideIdx=n;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===n%slideTotal);});resetAuto();}
 function startAuto(){
-  if(sliderTimer){clearInterval(sliderTimer);sliderTimer=null;}
   sliderTimer=setInterval(function(){
     var track=document.getElementById('sliderTrack');slideIdx++;
     track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
     track.style.transform='translateX(-'+slideIdx+'00%)';
     document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});
     if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}
-  },5000);
+  },3500);
 }
 function slideNext(){slideIdx++;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});if(slideIdx>=slideTotal){setTimeout(function(){track.style.transition='none';track.style.transform='translateX(0%)';slideIdx=0;document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===0);});},650);}resetAuto();}
 function slidePrev(){if(slideIdx<=0){slideIdx=slideTotal;}slideIdx--;var track=document.getElementById('sliderTrack');track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';track.style.transform='translateX(-'+slideIdx+'00%)';document.querySelectorAll('.sdot-btn').forEach(function(d,i){d.classList.toggle('active',i===slideIdx%slideTotal);});resetAuto();}
-function resetAuto(){if(sliderTimer){clearInterval(sliderTimer);sliderTimer=null;}startAuto();}
+function resetAuto(){clearInterval(sliderTimer);startAuto();}
 
 /* CART */
 var cart=[];
